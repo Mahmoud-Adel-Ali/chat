@@ -1,4 +1,4 @@
-import 'package:chat/features/home/presentation/view/widgets/welcom_container.dart';
+import 'package:chat/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -6,10 +6,30 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      children: [
-        WelcomeContainer(),
-      ],
+    return SizedBox(
+      width: double.infinity,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+           Image.asset('assets/img/scholar.png',),
+          const SizedBox(height: 20),
+          const Text("Chat",style: Styles.textstyle45,),
+          const SizedBox(height: 70),
+          ElevatedButton(
+            onPressed: () {
+
+            },
+            style: const ButtonStyle(
+                padding: MaterialStatePropertyAll(EdgeInsets.all(10))),
+            child: Text(
+              "Get Start",
+              style: Styles.textstyle45.copyWith(fontSize: 28),
+            ),
+          ),
+          const SizedBox(height: 30,),
+          
+        ],
+      ),
     );
   }
 }
