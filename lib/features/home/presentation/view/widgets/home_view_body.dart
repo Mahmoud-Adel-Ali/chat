@@ -1,4 +1,4 @@
-
+import 'package:chat/features/home/presentation/view/widgets/welcom_container.dart';
 import 'package:flutter/material.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -6,6 +6,10 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Container();
+    return const Column(
+      children: [
+        WelcomeContainer(),
+      ],
+    );
   }
 }
