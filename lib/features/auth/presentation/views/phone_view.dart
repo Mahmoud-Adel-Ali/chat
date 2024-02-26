@@ -1,3 +1,4 @@
+import 'package:chat/constant.dart';
 import 'package:chat/features/auth/presentation/views/widgets/custom_auth_app_bar.dart';
 import 'package:chat/features/auth/presentation/views/widgets/phone_view_body.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +11,7 @@ class PhoneView extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: Container(
-          // color: homebackgroundColor,
+          color: homebackgroundColor,
           child:const Column(
             children: [
               CustomAuthAppBar(
