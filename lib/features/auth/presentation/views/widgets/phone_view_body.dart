@@ -24,7 +24,9 @@ class PhoneViewBody extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 50),
-             CustomTextFormFeild(onChanged: (data){},),
+            CustomTextFormFeild(
+              onChanged: (data) {},
+            ),
           ],
         ),
       ),
