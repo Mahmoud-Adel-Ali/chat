@@ -12,7 +12,7 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: phoneView, //by default is initial router
-        builder: (context, state) => const PhoneView(),
+        builder: (context, state) =>  PhoneView(),
       ),
     ],
   );

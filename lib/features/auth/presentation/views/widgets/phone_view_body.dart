@@ -1,33 +1,56 @@
 import 'package:chat/constant.dart';
 import 'package:chat/core/utils/styles.dart';
+import 'package:chat/features/auth/presentation/views/widgets/custom_buttom.dart';
 import 'package:chat/features/auth/presentation/views/widgets/custom_text_form_feild.dart';
 import 'package:flutter/material.dart';
 
-class PhoneViewBody extends StatelessWidget {
+class PhoneViewBody extends StatefulWidget {
   const PhoneViewBody({super.key});
+
+  @override
+  State<PhoneViewBody> createState() => _PhoneViewBodyState();
+}
+
+class _PhoneViewBodyState extends State<PhoneViewBody> {
+  final GlobalKey<FormState> formKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 12),
-        child: Column(
-          children: [
-            const SizedBox(height: 50),
-            Image.asset('assets/img/scholar.png'),
-            const SizedBox(height: 50),
-            Text(
-              "Enter your mobile number",
-              style: Styles.textstyle45.copyWith(
-                fontSize: 30,
-                color: kPrimeColor,
+        child: Form(
+          key: formKey,
+          child: Column(
+            children: [
+              const SizedBox(height: 50),
+              Image.asset('assets/img/scholar.png'),
+              const SizedBox(height: 50),
+              Text(
+                "Enter your mobile number",
+                style: Styles.textstyle45.copyWith(
+                  fontSize: 30,
+                  color: kPrimeColor,
+                ),
               ),
-            ),
-            const SizedBox(height: 50),
-            CustomTextFormFeild(
-              onChanged: (data) {},
-            ),
-          ],
+              const SizedBox(height: 50),
+              CustomTextFormFeild(
+                onChanged: (data) {},
+              ),
+              const SizedBox(height: 50),
+              CustomButton(
+                text: 'Next',
+                onTap: () {
+                  if (formKey.currentState!.validate()) {
+                    
+                  } else {
+                    
+                  }
+                },
+                formKey: formKey,
+              ),
+            ],
+          ),
         ),
       ),
     );
