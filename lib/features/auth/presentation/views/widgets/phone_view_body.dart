@@ -1,4 +1,5 @@
 import 'package:chat/constant.dart';
+import 'package:chat/core/utils/flutter_toast.dart';
 import 'package:chat/core/utils/styles.dart';
 import 'package:chat/features/auth/presentation/views/widgets/custom_buttom.dart';
 import 'package:chat/features/auth/presentation/views/widgets/custom_text_form_feild.dart';
@@ -42,10 +43,8 @@ class _PhoneViewBodyState extends State<PhoneViewBody> {
                 text: 'Next',
                 onTap: () {
                   if (formKey.currentState!.validate()) {
-                    
-                  } else {
-                    
-                  }
+                    showFlutterToast(msg: "done");
+                  } else {}
                 },
                 formKey: formKey,
               ),
