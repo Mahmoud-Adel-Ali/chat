@@ -11,7 +11,7 @@ class CustomAuthAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.075,
+      height: 65,
       color: kPrimeColor,
       child: ListView(
         scrollDirection: Axis.horizontal,

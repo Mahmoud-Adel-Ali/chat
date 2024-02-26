@@ -17,39 +17,37 @@ class _PhoneViewBodyState extends State<PhoneViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12),
-        child: Form(
-          key: formKey,
-          child: Column(
-            children: [
-              const SizedBox(height: 50),
-              Image.asset('assets/img/scholar.png'),
-              const SizedBox(height: 50),
-              Text(
-                "Enter your mobile number",
-                style: Styles.textstyle45.copyWith(
-                  fontSize: 30,
-                  color: kPrimeColor,
-                ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 12),
+      child: Form(
+        key: formKey,
+        child: Column(
+          children: [
+            const SizedBox(height: 50),
+            Image.asset('assets/img/scholar.png'),
+            const SizedBox(height: 50),
+            Text(
+              "Enter your mobile number",
+              style: Styles.textstyle45.copyWith(
+                fontSize: 30,
+                color: kPrimeColor,
               ),
-              const SizedBox(height: 50),
-              CustomTextFormFeild(
-                onChanged: (data) {},
-              ),
-              const SizedBox(height: 50),
-              CustomButton(
-                text: 'Next',
-                onTap: () {
-                  if (formKey.currentState!.validate()) {
-                    showFlutterToast(msg: "done");
-                  } else {}
-                },
-                formKey: formKey,
-              ),
-            ],
-          ),
+            ),
+            const SizedBox(height: 50),
+            CustomTextFormFeild(
+              onChanged: (data) {},
+            ),
+            const SizedBox(height: 50),
+            CustomButton(
+              text: 'Next',
+              onTap: () {
+                if (formKey.currentState!.validate()) {
+                  showFlutterToast(msg: "done");
+                } else {}
+              },
+              formKey: formKey,
+            ),
+          ],
         ),
       ),
     );

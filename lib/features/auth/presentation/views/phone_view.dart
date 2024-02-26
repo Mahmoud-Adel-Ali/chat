@@ -18,12 +18,10 @@ class PhoneView extends StatelessWidget {
         child: Scaffold(
           body: Container(
             color: homebackgroundColor,
-            child: const Column(
-              children: [
-                CustomAuthAppBar(
-                  numOfPage: 1,
-                ),
-                PhoneViewBody(),
+            child: const CustomScrollView(
+              slivers: [
+                SliverToBoxAdapter(child: CustomAuthAppBar(numOfPage: 1),),
+                SliverToBoxAdapter(child: PhoneViewBody(),),
               ],
             ),
           ),
