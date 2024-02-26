@@ -7,9 +7,9 @@ import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class PhoneView extends StatelessWidget {
-    PhoneView({super.key});
+  PhoneView({super.key});
   bool isLoading = false;
-  
+
   @override
   Widget build(BuildContext context) {
     return ModalProgressHUD(
@@ -20,8 +20,12 @@ class PhoneView extends StatelessWidget {
             color: homebackgroundColor,
             child: const CustomScrollView(
               slivers: [
-                SliverToBoxAdapter(child: CustomAuthAppBar(numOfPage: 1),),
-                SliverToBoxAdapter(child: PhoneViewBody(),),
+                SliverToBoxAdapter(
+                  child: CustomAuthAppBar(numOfPage: 1),
+                ),
+                SliverToBoxAdapter(
+                  child: PhoneViewBody(),
+                ),
               ],
             ),
           ),

@@ -15,20 +15,20 @@ class CustomAuthAppBar extends StatelessWidget {
       color: kPrimeColor,
       child: ListView(
         scrollDirection: Axis.horizontal,
-        children: [
+        children:  [
           CustomCircle(
-            isComplete: numOfPage == 1,
             childNumber: 1,
+            pageNumber: numOfPage,
           ),
           const SizedBox(width: 5),
           CustomCircle(
-            isComplete: numOfPage == 2,
             childNumber: 2,
+            pageNumber: numOfPage,
           ),
           const SizedBox(width: 5),
           CustomCircle(
-            isComplete: numOfPage == 3,
             childNumber: 3,
+            pageNumber: numOfPage,
           ),
         ],
       ),

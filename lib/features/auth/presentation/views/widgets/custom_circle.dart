@@ -1,5 +1,3 @@
-
-
 import 'package:chat/constant.dart';
 import 'package:chat/core/utils/styles.dart';
 import 'package:flutter/material.dart';
@@ -7,17 +5,19 @@ import 'package:flutter/material.dart';
 class CustomCircle extends StatelessWidget {
   const CustomCircle({
     super.key,
-    required this.isComplete,
+  
     required this.childNumber,
+    required this.pageNumber,
   });
-  final bool isComplete;
   final int childNumber;
+  final int pageNumber;
   @override
   Widget build(BuildContext context) {
     return CircleAvatar(
-      backgroundColor: Colors.white,
+      backgroundColor:
+          pageNumber >= childNumber ? Colors.white : Colors.grey[700],
       radius: 27,
-      child: isComplete
+      child: pageNumber > childNumber
           ? const Icon(
               Icons.check,
               size: 50,
