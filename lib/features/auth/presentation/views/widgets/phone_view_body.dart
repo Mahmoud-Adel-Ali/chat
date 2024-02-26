@@ -1,9 +1,11 @@
 import 'package:chat/constant.dart';
+import 'package:chat/core/utils/app_router.dart';
 import 'package:chat/core/utils/flutter_toast.dart';
 import 'package:chat/core/utils/styles.dart';
 import 'package:chat/features/auth/presentation/views/widgets/custom_buttom.dart';
 import 'package:chat/features/auth/presentation/views/widgets/custom_text_form_feild.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class PhoneViewBody extends StatefulWidget {
   const PhoneViewBody({super.key});
@@ -43,7 +45,10 @@ class _PhoneViewBodyState extends State<PhoneViewBody> {
               onTap: () {
                 if (formKey.currentState!.validate()) {
                   showFlutterToast(msg: "done");
-                } else {}
+                  GoRouter.of(context).push(AppRouter.verfiyPhoneNumberView);
+                } else {
+                  showFlutterToast(msg: "required");
+                }
               },
               formKey: formKey,
             ),
