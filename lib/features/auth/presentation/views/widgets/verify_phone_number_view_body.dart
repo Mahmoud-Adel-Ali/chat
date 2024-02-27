@@ -1,6 +1,6 @@
 import 'package:chat/constant.dart';
 import 'package:chat/core/utils/styles.dart';
-import 'package:chat/features/auth/presentation/views/widgets/custom_verification_code_feild.dart';
+import 'package:chat/features/auth/presentation/views/widgets/verification_code_section.dart';
 import 'package:flutter/material.dart';
 
 class VerifyPhoneNumberViewBody extends StatelessWidget {
@@ -20,7 +20,7 @@ class VerifyPhoneNumberViewBody extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 130),
-        const CustomVerificationCodeFeild(),
+        const VerificationCodeSection(),
       ],
     );
   }
