@@ -1,9 +1,8 @@
-
-
 // ignore_for_file: must_be_immutable
 
 import 'package:chat/constant.dart';
 import 'package:chat/features/auth/presentation/views/widgets/custom_auth_app_bar.dart';
+import 'package:chat/features/auth/presentation/views/widgets/verify_phone_number_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
@@ -24,6 +23,9 @@ class VerifyPhoneNumberView extends StatelessWidget {
                 SliverToBoxAdapter(
                   child: CustomAuthAppBar(numOfPage: 2),
                 ),
+                SliverToBoxAdapter(
+                  child: VerifyPhoneNumberViewBody(),
+                ),
               ],
             ),
           ),
@@ -32,3 +34,4 @@ class VerifyPhoneNumberView extends StatelessWidget {
     );
   }
 }
+
