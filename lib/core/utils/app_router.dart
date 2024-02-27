@@ -1,3 +1,4 @@
+import 'package:chat/features/auth/presentation/views/continue_view.dart';
 import 'package:chat/features/auth/presentation/views/phone_view.dart';
 import 'package:chat/features/auth/presentation/views/verify_phone_number_view.dart';
 import 'package:chat/features/home/presentation/view/home.dart';
@@ -6,6 +7,8 @@ import 'package:go_router/go_router.dart';
 abstract class AppRouter {
   static String phoneView = '/phoneView';
   static String verfiyPhoneNumberView = '/verfiyPhoneNumberView';
+  static String continueView = '/continueView';
+  
   static GoRouter router = GoRouter(
     routes: [
       GoRoute(
@@ -19,6 +22,10 @@ abstract class AppRouter {
       GoRoute(
         path: verfiyPhoneNumberView, //by default is initial router
         builder: (context, state) =>  VerifyPhoneNumberView(),
+      ),
+      GoRoute(
+        path: continueView, //by default is initial router
+        builder: (context, state) =>  ContinueView(),
       ),
     ],
   );

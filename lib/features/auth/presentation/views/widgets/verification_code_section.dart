@@ -1,6 +1,8 @@
+import 'package:chat/core/utils/app_router.dart';
 import 'package:chat/features/auth/presentation/views/widgets/custom_buttom.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
+import 'package:go_router/go_router.dart';
 
 class VerificationCodeSection extends StatefulWidget {
   const VerificationCodeSection({super.key});
@@ -37,7 +39,12 @@ class _VerificationCodeSectionState extends State<VerificationCodeSection> {
           },
         ),
         const SizedBox(height: 70),
-        CustomButton(text: "Continue", onTap: () {})
+        CustomButton(
+          text: "Continue",
+          onTap: () {
+            GoRouter.of(context).push(AppRouter.continueView);
+          },
+        ),
       ],
     );
   }
