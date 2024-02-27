@@ -1,3 +1,5 @@
+import 'package:chat/constant.dart';
+import 'package:chat/features/auth/presentation/views/widgets/continue_view_body.dart';
 import 'package:chat/features/auth/presentation/views/widgets/custom_auth_app_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -8,12 +10,19 @@ class ContinueView extends StatelessWidget {
   Widget build(BuildContext context) {
     return const SafeArea(
       child: Scaffold(
-        body: Column(
-          children: [
-            CustomAuthAppBar(numOfPage: 3),
+        backgroundColor: homebackgroundColor,
+        body: CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(
+              child: CustomAuthAppBar(numOfPage: 3),
+            ),
+            SliverToBoxAdapter(
+              child: ContinueViewBody(),
+            ),
           ],
         ),
       ),
     );
   }
 }
+
