@@ -2,7 +2,7 @@
 
 
 import 'package:chat/constant.dart';
-import 'package:chat/features/home/presentation/view/widgets/splash_view_body.dart';
+import 'package:chat/features/splash/presentation/view/widgets/splash_view_body.dart';
 
 import 'package:flutter/material.dart';
 
