@@ -1,7 +1,7 @@
 import 'package:chat/features/auth/presentation/views/continue_view.dart';
 import 'package:chat/features/auth/presentation/views/phone_view.dart';
 import 'package:chat/features/auth/presentation/views/verify_phone_number_view.dart';
-import 'package:chat/features/home/presentation/view/home.dart';
+import 'package:chat/features/home/presentation/view/splash_view.dart';
 import 'package:go_router/go_router.dart';
 
 abstract class AppRouter {
@@ -13,7 +13,7 @@ abstract class AppRouter {
     routes: [
       GoRoute(
         path: '/', //by default is initial router
-        builder: (context, state) => const Home(),
+        builder: (context, state) => const SplashView(),
       ),
       GoRoute(
         path: phoneView, //by default is initial router

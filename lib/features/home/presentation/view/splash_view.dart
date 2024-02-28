@@ -2,17 +2,18 @@
 
 
 import 'package:chat/constant.dart';
-import 'package:chat/features/home/presentation/view/widgets/home_view_body.dart';
+import 'package:chat/features/home/presentation/view/widgets/splash_view_body.dart';
+
 import 'package:flutter/material.dart';
 
-class Home extends StatelessWidget {
-  const Home({super.key});
+class SplashView extends StatelessWidget {
+  const SplashView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
       backgroundColor: kPrimeColor,
-      body: HomeViewBody(),
+      body: SplashViewBody(),
     );
   }
 }

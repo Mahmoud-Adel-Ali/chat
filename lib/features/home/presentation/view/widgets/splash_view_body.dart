@@ -3,8 +3,8 @@ import 'package:chat/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class HomeViewBody extends StatelessWidget {
-  const HomeViewBody({super.key});
+class SplashViewBody extends StatelessWidget {
+  const SplashViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
