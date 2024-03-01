@@ -8,25 +8,24 @@ class CustomTextFormFeild extends StatelessWidget {
   const CustomTextFormFeild({
     super.key,
     required this.onChanged,
+    required this.validator,
+    required this.hinttext,
+    required this.keyboardType,
   });
   final Function(String) onChanged;
+  final String? Function(String?)? validator;
+  final String hinttext;
+  final TextInputType keyboardType;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      validator: (data) {
-        if (data!.length < 11) {
-          return "Please complete mobile number";
-        } else {
-          return null;
-        }
-      },
-      keyboardType: TextInputType.number,
+      validator: validator,
+      keyboardType: keyboardType,
       onChanged: onChanged,
-      style: const TextStyle(fontSize: 30,color: kPrimeColor),
+      style: const TextStyle(fontSize: 30, color: kPrimeColor),
       decoration: InputDecoration(
         hintFadeDuration: const Duration(seconds: 1),
-        hintText: "01234567890",
-        
+        hintText: hinttext,
         hintStyle: Styles.textFormTextStyle.copyWith(color: Colors.grey),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(5),

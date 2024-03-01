@@ -38,6 +38,16 @@ class _PhoneViewBodyState extends State<PhoneViewBody> {
             const SizedBox(height: 50),
             CustomTextFormFeild(
               onChanged: (data) {},
+              keyboardType: TextInputType.number,
+              validator: (data) {
+                if (data!.length < 11) {
+                  return "Please complete mobile number";
+                } else {
+                  return null;
+                }
+              },
+              hinttext: '01234567890',
+              
             ),
             const SizedBox(height: 50),
             CustomButton(
@@ -50,7 +60,6 @@ class _PhoneViewBodyState extends State<PhoneViewBody> {
                   showFlutterToast(msg: "required");
                 }
               },
-              
             ),
           ],
         ),
