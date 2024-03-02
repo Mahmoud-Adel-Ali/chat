@@ -23,7 +23,7 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
   String userName = '';
   late String imgName;
   late File imgPath;
-
+  bool imgIsUploaded = false;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -34,8 +34,8 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
           Stack(
             children: [
               Center(
-                child: imgName != null
-                    ? ClipRRect(child: Image.file(imgPath))
+                child: imgIsUploaded
+                    ? CustomImageContainer(imgPath: imgPath)
                     : const CircleAvatar(
                         backgroundColor: Colors.grey,
                         radius: 80,
@@ -48,6 +48,7 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
                 child: IconButton(
                   onPressed: () {
                     showFlutterToast(msg: "get image");
+                    uploadImage(ImageSource.gallery);
                   },
                   icon: const Icon(
                     Icons.add_a_photo,
@@ -85,6 +86,7 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
           imgName = basename(pickedImg.path);
           int random = Random().nextInt(9999999);
           imgName = "$random$imgName";
+          imgIsUploaded = true;
         });
       } else {
         showFlutterToast(msg: "NO img selected");
@@ -92,5 +94,27 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
     } catch (e) {
       showFlutterToast(msg: "Error => $e");
     }
+  }
+}
+
+class CustomImageContainer extends StatelessWidget {
+  const CustomImageContainer({
+    super.key,
+    required this.imgPath,
+  });
+
+  final File imgPath;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 200,
+      width: 200,
+      decoration: BoxDecoration(shape: BoxShape.circle),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(160),
+        child: Image.file(imgPath,),
+      ),
+    );
   }
 }
