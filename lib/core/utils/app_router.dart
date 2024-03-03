@@ -2,6 +2,7 @@ import 'package:chat/features/auth/presentation/views/continue_view.dart';
 import 'package:chat/features/auth/presentation/views/phone_view.dart';
 import 'package:chat/features/auth/presentation/views/profile_view.dart';
 import 'package:chat/features/auth/presentation/views/verify_phone_number_view.dart';
+import 'package:chat/features/home/presentaion/views/home_view.dart';
 import 'package:chat/features/splash/presentation/view/splash_view.dart';
 import 'package:go_router/go_router.dart';
 
@@ -10,6 +11,7 @@ abstract class AppRouter {
   static String verfiyPhoneNumberView = '/verfiyPhoneNumberView';
   static String continueView = '/continueView';
   static String profileView = '/profileView';
+  static String homeView = '/homeView';
 
   static GoRouter router = GoRouter(
     routes: [
@@ -32,6 +34,10 @@ abstract class AppRouter {
       GoRoute(
         path: profileView, //by default is initial router
         builder: (context, state) => const ProfileView(),
+      ),
+      GoRoute(
+        path: homeView, //by default is initial router
+        builder: (context, state) => const HomwView(),
       ),
     ],
   );

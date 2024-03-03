@@ -4,11 +4,13 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:chat/constant.dart';
+import 'package:chat/core/utils/app_router.dart';
 import 'package:chat/core/utils/asset.dart';
 import 'package:chat/core/utils/flutter_toast.dart';
 import 'package:chat/features/auth/presentation/views/widgets/custom_buttom.dart';
 import 'package:chat/features/auth/presentation/views/widgets/custom_text_form_feild.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart' show basename;
 
@@ -71,7 +73,11 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
               hinttext: "Enter your name",
               keyboardType: TextInputType.text),
           const SizedBox(height: 50),
-          CustomButton(text: "Save", onTap: () {}),
+          CustomButton(
+              text: "Save",
+              onTap: () {
+                GoRouter.of(context).push(AppRouter.homeView);
+              }),
         ],
       ),
     );
@@ -113,7 +119,9 @@ class CustomImageContainer extends StatelessWidget {
       decoration: BoxDecoration(shape: BoxShape.circle),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(160),
-        child: Image.file(imgPath,),
+        child: Image.file(
+          imgPath,
+        ),
       ),
     );
   }
