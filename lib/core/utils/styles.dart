@@ -15,4 +15,14 @@ abstract class Styles {
     fontWeight: FontWeight.w800,
     color: kPrimeColor,
   );
+  static const TextStyle textstyle25 = TextStyle(
+    fontSize: 25,
+    fontWeight: FontWeight.w800,
+    color: Colors.black,
+  );
+  static const TextStyle textstyle16 = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+    color: Colors.grey,
+  );
 }
