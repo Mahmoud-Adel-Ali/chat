@@ -11,7 +11,7 @@ class CustomOneFrendChat extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        GoRouter.of(context).go(AppRouter.chatView);
+        GoRouter.of(context).push(AppRouter.chatView);
       },
       child: ListTile(
         title:
