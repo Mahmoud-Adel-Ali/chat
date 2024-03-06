@@ -42,7 +42,7 @@ class _VerificationCodeSectionState extends State<VerificationCodeSection> {
         CustomButton(
           text: "Continue",
           onTap: () {
-            GoRouter.of(context).push(AppRouter.continueView);
+            GoRouter.of(context).go(AppRouter.continueView);
           },
         ),
       ],

@@ -1,8 +1,8 @@
 import 'package:chat/features/home/presentaion/views/widgets/custom_one_frend_chat.dart';
 import 'package:flutter/material.dart';
 
-class FrendsViewBody extends StatelessWidget {
-  const FrendsViewBody({super.key});
+class FriendsViewBody extends StatelessWidget {
+  const FriendsViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class FrendsViewBody extends StatelessWidget {
       child: ListView.builder(
         itemCount: 15,
         itemBuilder: (context, index) {
-          return const CustomOneFrendChat();
+          return const CustomOneFriendChat();
         },
       ),
     );

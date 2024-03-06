@@ -1,8 +1,6 @@
 import 'package:chat/constant.dart';
 import 'package:chat/features/home/presentaion/views/widgets/frends_view_body.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 
 class HomwView extends StatelessWidget {
   const HomwView({super.key});
@@ -29,14 +27,14 @@ class HomwView extends StatelessWidget {
             dividerHeight: 0,
             indicatorPadding: EdgeInsets.all(5),
             tabs: [
-              Tab(child: Text("Frends")),
+              Tab(child: Text("Friends")),
               Tab(child: Text("Groups")),
               Tab(child: Text("Add")),
             ],
           ),
         ),
         body: const TabBarView(children: [
-          FrendsViewBody(),
+          FriendsViewBody(),
           Text("2"),
           Text("3"),
         ]),

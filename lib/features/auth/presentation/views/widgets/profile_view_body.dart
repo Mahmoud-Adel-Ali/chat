@@ -76,7 +76,7 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
           CustomButton(
               text: "Save",
               onTap: () {
-                GoRouter.of(context).push(AppRouter.homeView);
+                GoRouter.of(context).go(AppRouter.homeView);
               }),
         ],
       ),

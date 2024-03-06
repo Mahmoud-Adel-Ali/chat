@@ -4,8 +4,8 @@ import 'package:chat/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class CustomOneFrendChat extends StatelessWidget {
-  const CustomOneFrendChat({super.key});
+class CustomOneFriendChat extends StatelessWidget {
+  const CustomOneFriendChat({super.key});
 
   @override
   Widget build(BuildContext context) {

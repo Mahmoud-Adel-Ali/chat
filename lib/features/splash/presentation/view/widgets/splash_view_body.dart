@@ -84,7 +84,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
   void navigateToPhoneView() {
     Future.delayed(const Duration(seconds: 3, milliseconds: 450), () {
-      GoRouter.of(context).push(AppRouter.phoneView);
+      GoRouter.of(context).go(AppRouter.phoneView);
     });
   }
 }

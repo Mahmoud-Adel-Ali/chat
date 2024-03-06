@@ -29,7 +29,7 @@ class ContinueViewBody extends StatelessWidget {
           CustomButton(
               text: "Continue",
               onTap: () {
-                GoRouter.of(context).push(AppRouter.profileView);
+                GoRouter.of(context).go(AppRouter.profileView);
               }),
           const SizedBox(height: 40),
         ],
