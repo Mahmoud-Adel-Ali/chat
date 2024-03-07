@@ -1,4 +1,5 @@
 import 'package:chat/constant.dart';
+import 'package:chat/core/widgets/custom_drawer.dart';
 import 'package:chat/features/home/presentaion/views/widgets/frends_view_body.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +11,9 @@ class HomwView extends StatelessWidget {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
+        drawer: const CustomDrawer(),
         appBar: AppBar(
+          // leading: Icon(Icons.add),
           actions: [
             IconButton(
                 onPressed: () {},
@@ -19,9 +22,10 @@ class HomwView extends StatelessWidget {
                   size: 30,
                 ))
           ],
-          automaticallyImplyLeading: false,
+          automaticallyImplyLeading: true,
           backgroundColor: kPrimeColor,
           title: const Text("Messages(45)"),
+          centerTitle: true,
           bottom: const TabBar(
             indicatorWeight: 5,
             dividerHeight: 0,
