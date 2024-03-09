@@ -40,7 +40,10 @@ class PhoneViewBody extends StatelessWidget {
               },
               keyboardType: TextInputType.number,
               validator: (data) {
-                if (data!.length < 11) {
+                print("=====data=========$data==========data====");
+                if (data!.isEmpty) {
+                  return 'required';
+                } else if (!isEgyptPhoneNum(data)) {
                   return "Please complete mobile number";
                 } else {
                   return null;
@@ -53,7 +56,7 @@ class PhoneViewBody extends StatelessWidget {
               text: 'Next',
               onTap: () {
                 if (formKey.currentState!.validate()) {
-                  showFlutterToast(msg: "done");
+                  showFlutterToast(msg: "get code that was sent to you phone");
                   GoRouter.of(context).push(AppRouter.verfiyPhoneNumberView);
                 } else {
                   showFlutterToast(msg: "required");
@@ -64,5 +67,13 @@ class PhoneViewBody extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  bool isEgyptPhoneNum(String? data) {
+    if (data!.length < 3) return false;
+    bool len = data.length == 11;
+    bool third =
+        data[2] == '0' || data[2] == '1' || data[2] == '2' || data[2] == '5';
+    return (len && data[0] == '0' && data[1] == '1' && third);
   }
 }
