@@ -18,9 +18,9 @@ class VerifyPhoneNumberView extends StatelessWidget {
         child: Scaffold(
           body: Container(
             color: homebackgroundColor,
-            child: const CustomScrollView(
+            child:  CustomScrollView(
               slivers: [
-                SliverToBoxAdapter(
+                const SliverToBoxAdapter(
                   child: CustomAuthAppBar(numOfPage: 2),
                 ),
                 SliverToBoxAdapter(

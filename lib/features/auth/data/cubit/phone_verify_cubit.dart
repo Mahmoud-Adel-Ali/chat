@@ -8,6 +8,10 @@ import 'package:go_router/go_router.dart';
 
 class PhoneVerifyCubit extends Cubit<PhoneVerifyState> {
   PhoneVerifyCubit() : super(PhoneVerifyInitial());
+
+  String phoneNum = "";
+
+  ////
   late String verificationId;
   late String smsCode;
   verifyPhoneNumberInPhoneView({required context}) async {

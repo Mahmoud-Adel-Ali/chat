@@ -2,23 +2,21 @@ import 'package:chat/constant.dart';
 import 'package:chat/core/utils/app_router.dart';
 import 'package:chat/core/utils/flutter_toast.dart';
 import 'package:chat/core/utils/styles.dart';
+import 'package:chat/features/auth/data/cubit/phone_verify_cubit.dart';
 import 'package:chat/features/auth/presentation/views/widgets/custom_buttom.dart';
 import 'package:chat/features/auth/presentation/views/widgets/custom_text_form_feild.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-class PhoneViewBody extends StatefulWidget {
-  const PhoneViewBody({super.key});
+class PhoneViewBody extends StatelessWidget {
+  PhoneViewBody({super.key});
 
-  @override
-  State<PhoneViewBody> createState() => _PhoneViewBodyState();
-}
-
-class _PhoneViewBodyState extends State<PhoneViewBody> {
   final GlobalKey<FormState> formKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
+    final authBlockProvider = BlocProvider.of<PhoneVerifyCubit>(context);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12),
       child: Form(
@@ -37,7 +35,9 @@ class _PhoneViewBodyState extends State<PhoneViewBody> {
             ),
             const SizedBox(height: 50),
             CustomTextFormFeild(
-              onChanged: (data) {},
+              onChanged: (data) {
+                authBlockProvider.phoneNum = "+2$data";
+              },
               keyboardType: TextInputType.number,
               validator: (data) {
                 if (data!.length < 11) {
@@ -47,7 +47,6 @@ class _PhoneViewBodyState extends State<PhoneViewBody> {
                 }
               },
               hinttext: '01234567890',
-              
             ),
             const SizedBox(height: 50),
             CustomButton(
