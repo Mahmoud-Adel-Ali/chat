@@ -31,7 +31,6 @@ class PhoneVerifyCubit extends Cubit<PhoneVerifyState> {
       },
       codeSent: (String verificationId, int? resendToken) async {
         // Update the UI - wait for the user to enter the SMS code
-        String smsCode = 'xxxx';
         GoRouter.of(context).push(AppRouter.verfiyPhoneNumberView);
       },
       codeAutoRetrievalTimeout: (String verificationId) {},
