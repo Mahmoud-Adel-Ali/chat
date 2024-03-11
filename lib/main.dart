@@ -2,8 +2,10 @@
 
 import 'package:chat/constant.dart';
 import 'package:chat/features/auth/data/cubit/phone_verify_cubit.dart';
-import 'package:chat/features/splash/presentation/view/splash_view.dart';
+import 'package:chat/features/auth/presentation/views/phone_view.dart';
+import 'package:chat/features/home/presentaion/views/home_view.dart';
 import 'package:chat/firebase_options.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -31,7 +33,13 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         // routerConfig:auth == null? AppRouter.router:AppRouter.goHomeRouter,
-        home: const SplashView(),
+        home: StreamBuilder(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot) =>
+            snapshot.hasData ? const HomwView() : const PhoneView(),
+      ),
+      
+
         theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: kPrimeColor),
       ),
     );
