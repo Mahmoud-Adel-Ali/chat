@@ -1,5 +1,7 @@
 import 'package:chat/core/utils/styles.dart';
 import 'package:chat/features/auth/presentation/views/phone_view.dart';
+import 'package:chat/features/home/presentaion/views/home_view.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class SplashViewBody extends StatefulWidget {
@@ -84,6 +86,11 @@ class _SplashViewBodyState extends State<SplashViewBody>
   void navigateToPhoneView() {
     Future.delayed(const Duration(seconds: 3, milliseconds: 450), () {
       // GoRouter.of(context).go(AppRouter.phoneView);
+      StreamBuilder(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot) =>
+            snapshot.hasData ? const HomwView() : const PhoneView(),
+      );
       Navigator.of(context).pushReplacement(MaterialPageRoute(
         builder: (context) => const PhoneView(),
       ));
