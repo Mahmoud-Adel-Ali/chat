@@ -1,13 +1,12 @@
 import 'package:chat/constant.dart';
-import 'package:chat/core/utils/app_router.dart';
 import 'package:chat/core/utils/flutter_toast.dart';
 import 'package:chat/core/utils/styles.dart';
 import 'package:chat/features/auth/data/cubit/phone_verify_cubit.dart';
+import 'package:chat/features/auth/presentation/views/verify_phone_number_view.dart';
 import 'package:chat/features/auth/presentation/views/widgets/custom_buttom.dart';
 import 'package:chat/features/auth/presentation/views/widgets/custom_text_form_feild.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 
 class PhoneViewBody extends StatelessWidget {
   PhoneViewBody({super.key});
@@ -40,7 +39,6 @@ class PhoneViewBody extends StatelessWidget {
               },
               keyboardType: TextInputType.number,
               validator: (data) {
-                print("=====data=========$data==========data====");
                 if (data!.isEmpty) {
                   return 'required';
                 } else if (!isEgyptPhoneNum(data)) {
@@ -57,7 +55,10 @@ class PhoneViewBody extends StatelessWidget {
               onTap: () {
                 if (formKey.currentState!.validate()) {
                   showFlutterToast(msg: "get code that was sent to you phone");
-                  GoRouter.of(context).push(AppRouter.verfiyPhoneNumberView);
+                  // GoRouter.of(context).push(AppRouter.verfiyPhoneNumberView);
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const VerifyPhoneNumberView(),
+                  ));
                 } else {
                   showFlutterToast(msg: "required");
                 }

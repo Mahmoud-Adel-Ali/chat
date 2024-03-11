@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class PhoneView extends StatelessWidget {
-  PhoneView({super.key});
+  const PhoneView({super.key});
 
   @override
   Widget build(BuildContext context) {

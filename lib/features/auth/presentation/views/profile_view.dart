@@ -19,7 +19,7 @@ class ProfileView extends StatelessWidget {
           ),
           backgroundColor: kPrimeColor,
         ),
-        body: ProfileViewBody(),
+        body: const ProfileViewBody(),
       ),
     );
   }

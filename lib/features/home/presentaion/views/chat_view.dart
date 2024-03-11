@@ -3,7 +3,6 @@ import 'package:chat/core/utils/asset.dart';
 import 'package:chat/core/utils/styles.dart';
 import 'package:chat/features/home/presentaion/views/widgets/chat_view_body.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class ChatView extends StatelessWidget {
   const ChatView({super.key});
@@ -34,7 +33,7 @@ class ChatView extends StatelessWidget {
           IconButton(onPressed: (){}, icon:const Icon(Icons.more_vert_rounded,size: 30,)),
         ],
       ),
-      body: ChatViewBody(),
+      body: const ChatViewBody(),
     );
   }
 }

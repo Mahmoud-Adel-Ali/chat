@@ -1,11 +1,11 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
-import 'package:chat/core/utils/app_router.dart';
+import 'package:chat/constant.dart';
 import 'package:chat/core/utils/flutter_awesome_dialog.dart';
+import 'package:chat/features/auth/presentation/views/continue_view.dart';
 import 'package:chat/features/auth/presentation/views/widgets/custom_buttom.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
-import 'package:go_router/go_router.dart';
 
 class VerificationCodeSection extends StatefulWidget {
   const VerificationCodeSection({super.key, required this.phoneNum});
@@ -19,6 +19,7 @@ class _VerificationCodeSectionState extends State<VerificationCodeSection> {
   String code = '';
   bool onEditing = true;
   late String verifyId;
+  bool isLoading = false;
   FirebaseAuth auth = FirebaseAuth.instance;
   @override
   void initState() {
@@ -50,7 +51,10 @@ class _VerificationCodeSectionState extends State<VerificationCodeSection> {
       // Sign the user in (or link) with the credential
       await auth.signInWithCredential(credential).then((value) {
         if (value.user != null) {
-          GoRouter.of(context).go(AppRouter.continueView);
+          // GoRouter.of(context).go(AppRouter.continueView);
+          Navigator.of(context).pushReplacement(MaterialPageRoute(
+            builder: (context) => const ContinueView(),
+          ));
         }
       });
     } catch (e) {
@@ -86,12 +90,20 @@ class _VerificationCodeSectionState extends State<VerificationCodeSection> {
           },
         ),
         const SizedBox(height: 70),
-        CustomButton(
-          text: "Continue",
-          onTap: () {
-            sendCode();
-          },
-        ),
+        isLoading
+            ? const Center(child: CircularProgressIndicator(color: kPrimeColor))
+            : CustomButton(
+                text: "Continue",
+                onTap: () {
+                  setState(() {
+                    isLoading = true;
+                  });
+                  sendCode();
+                  setState(() {
+                    isLoading = false;
+                  });
+                },
+              ),
       ],
     );
   }

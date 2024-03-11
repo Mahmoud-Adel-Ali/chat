@@ -1,7 +1,6 @@
-import 'package:chat/core/utils/app_router.dart';
 import 'package:chat/core/utils/styles.dart';
+import 'package:chat/features/auth/presentation/views/phone_view.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -84,7 +83,10 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
   void navigateToPhoneView() {
     Future.delayed(const Duration(seconds: 3, milliseconds: 450), () {
-      GoRouter.of(context).go(AppRouter.phoneView);
+      // GoRouter.of(context).go(AppRouter.phoneView);
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
+        builder: (context) => const PhoneView(),
+      ));
     });
   }
 }

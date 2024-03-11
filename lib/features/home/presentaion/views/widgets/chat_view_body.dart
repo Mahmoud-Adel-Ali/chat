@@ -9,7 +9,7 @@ class ChatViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        CustomChatMessages(),
+        const CustomChatMessages(),
         CustomTextFeildMessage(),
       ],
     );

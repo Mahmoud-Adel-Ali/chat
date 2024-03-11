@@ -1,9 +1,8 @@
 // ignore_for_file: must_be_immutable
 
-import 'package:bloc/bloc.dart';
 import 'package:chat/constant.dart';
-import 'package:chat/core/utils/app_router.dart';
 import 'package:chat/features/auth/data/cubit/phone_verify_cubit.dart';
+import 'package:chat/features/splash/presentation/view/splash_view.dart';
 import 'package:chat/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -26,11 +25,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // final auth = FirebaseAuth.instance.currentUser;
     return BlocProvider(
       create: (context) => PhoneVerifyCubit(),
-      child: MaterialApp.router(
+      child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        routerConfig: AppRouter.router,
+        // routerConfig:auth == null? AppRouter.router:AppRouter.goHomeRouter,
+        home: const SplashView(),
         theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: kPrimeColor),
       ),
     );

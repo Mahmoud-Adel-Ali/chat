@@ -1,7 +1,7 @@
 import 'package:chat/constant.dart';
 import 'package:chat/core/utils/asset.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
@@ -30,7 +30,7 @@ class CustomDrawer extends StatelessWidget {
                 leading: const Icon(Icons.home),
                 title: const Text("Home"),
                 onTap: () {
-                  GoRouter.of(context).pop();
+                  Navigator.of(context).pop();
                 },
               ),
               ListTile(
@@ -46,7 +46,9 @@ class CustomDrawer extends StatelessWidget {
               ListTile(
                 leading: const Icon(Icons.exit_to_app),
                 title: const Text("Logout"),
-                onTap: () async {},
+                onTap: () async {
+                  await FirebaseAuth.instance.signOut();
+                },
               ),
             ],
           ),

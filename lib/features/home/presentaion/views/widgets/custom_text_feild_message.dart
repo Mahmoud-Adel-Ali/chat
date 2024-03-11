@@ -25,8 +25,8 @@ class CustomTextFeildMessage extends StatelessWidget {
         },
         decoration: InputDecoration(
           hintText: 'Send Message',
-          hintFadeDuration: Duration(milliseconds: 500),
-          hintStyle: TextStyle(color: Colors.white),
+          hintFadeDuration: const Duration(milliseconds: 500),
+          hintStyle: const TextStyle(color: Colors.white),
           suffixIcon: const Icon(
             Icons.send,
             color: Colors.white,

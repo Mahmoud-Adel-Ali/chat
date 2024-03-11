@@ -1,8 +1,7 @@
-import 'package:chat/core/utils/app_router.dart';
 import 'package:chat/core/utils/asset.dart';
 import 'package:chat/core/utils/styles.dart';
+import 'package:chat/features/home/presentaion/views/chat_view.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class CustomOneFriendChat extends StatelessWidget {
   const CustomOneFriendChat({super.key});
@@ -11,7 +10,10 @@ class CustomOneFriendChat extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        GoRouter.of(context).push(AppRouter.chatView);
+        // GoRouter.of(context).push(AppRouter.chatView);
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => const ChatView(),
+        ));
       },
       child: ListTile(
         title:

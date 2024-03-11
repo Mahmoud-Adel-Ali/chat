@@ -4,18 +4,17 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:chat/constant.dart';
-import 'package:chat/core/utils/app_router.dart';
 import 'package:chat/core/utils/asset.dart';
 import 'package:chat/core/utils/flutter_toast.dart';
 import 'package:chat/features/auth/presentation/views/widgets/custom_buttom.dart';
 import 'package:chat/features/auth/presentation/views/widgets/custom_text_form_feild.dart';
+import 'package:chat/features/home/presentaion/views/home_view.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart' show basename;
 
 class ProfileViewBody extends StatefulWidget {
-  ProfileViewBody({super.key});
+  const ProfileViewBody({super.key});
 
   @override
   State<ProfileViewBody> createState() => _ProfileViewBodyState();
@@ -76,7 +75,10 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
           CustomButton(
               text: "Save",
               onTap: () {
-                GoRouter.of(context).go(AppRouter.homeView);
+                // GoRouter.of(context).go(AppRouter.homeView);
+                Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  builder: (context) => const HomwView(),
+                ));
               }),
         ],
       ),
@@ -116,7 +118,7 @@ class CustomImageContainer extends StatelessWidget {
     return Container(
       height: 200,
       width: 200,
-      decoration: BoxDecoration(shape: BoxShape.circle),
+      decoration: const BoxDecoration(shape: BoxShape.circle),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(160),
         child: Image.file(

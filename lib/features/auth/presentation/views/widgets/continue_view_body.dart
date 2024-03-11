@@ -1,8 +1,7 @@
-import 'package:chat/core/utils/app_router.dart';
 import 'package:chat/core/utils/styles.dart';
+import 'package:chat/features/auth/presentation/views/profile_view.dart';
 import 'package:chat/features/auth/presentation/views/widgets/custom_buttom.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class ContinueViewBody extends StatelessWidget {
   const ContinueViewBody({super.key});
@@ -29,7 +28,10 @@ class ContinueViewBody extends StatelessWidget {
           CustomButton(
               text: "Continue",
               onTap: () {
-                GoRouter.of(context).go(AppRouter.profileView);
+                // GoRouter.of(context).go(AppRouter.profileView);
+                Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  builder: (context) => const ProfileView(),
+                ));
               }),
           const SizedBox(height: 40),
         ],
