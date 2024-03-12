@@ -1,30 +1,31 @@
-import 'package:chat/core/utils/asset.dart';
 import 'package:chat/core/utils/styles.dart';
 import 'package:chat/features/home/presentaion/views/chat_view.dart';
 import 'package:flutter/material.dart';
 
 class CustomOneFriendChat extends StatelessWidget {
-  const CustomOneFriendChat({super.key});
+  const CustomOneFriendChat({super.key, required this.data});
+
+  final Map<String,dynamic> data;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
+      onTap: () async{
         // GoRouter.of(context).push(AppRouter.chatView);
         Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => const ChatView(),
         ));
-      },
+        },
       child: ListTile(
         title:
-            const Text("Mahmoud Adel", maxLines: 1, style: Styles.textstyle25),
-        subtitle: const Text("how are you ❤🤗🙌",
+             Text(data['name'], maxLines: 1, style: Styles.textstyle25),
+        subtitle:  Text(data['phone'],
             overflow: TextOverflow.ellipsis,
             maxLines: 1,
             style: Styles.textstyle16),
         leading: CircleAvatar(
           radius: 55,
-          child: Image.asset(Assets.test),
+          child: ClipOval(child: Image.network(data['imgUrl'])),
         ),
         trailing: Column(
           children: [
