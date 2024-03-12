@@ -1,13 +1,11 @@
-
-
-
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-
 class CustomTextFeildMessage extends StatelessWidget {
-  CustomTextFeildMessage({super.key});
+  CustomTextFeildMessage({super.key, required this.data});
   TextEditingController controller = TextEditingController();
-  final _controller = ScrollController();
+  final Map<String, dynamic> data;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -16,15 +14,10 @@ class CustomTextFeildMessage extends StatelessWidget {
         cursorColor: Colors.white,
         controller: controller,
         onSubmitted: (data) {
-          // BlocProvider.of<ChatCubit>(context)
-          //     .sendMessage(message: data, email: email.toString());
-          controller.clear();
-          _controller.animateTo(0,
-              duration: const Duration(milliseconds: 500),
-              curve: Curves.easeIn);
+          sendMessage(msg: data);
         },
         decoration: InputDecoration(
-          hintText: 'Send Message',
+          hintText: data['uid'],
           hintFadeDuration: const Duration(milliseconds: 500),
           hintStyle: const TextStyle(color: Colors.white),
           suffixIcon: const Icon(
@@ -43,5 +36,12 @@ class CustomTextFeildMessage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  sendMessage({required msg}) async {
+    final yourUid = FirebaseAuth.instance.currentUser?.uid;
+    final yourFriendsUid = data['uid'];
+    print(yourFriendsUid);
+    print(yourUid);
   }
 }

@@ -13,7 +13,7 @@ class CustomOneFriendChat extends StatelessWidget {
       onTap: () async{
         // GoRouter.of(context).push(AppRouter.chatView);
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => const ChatView(),
+          builder: (context) =>  ChatView(data: data,),
         ));
         },
       child: ListTile(

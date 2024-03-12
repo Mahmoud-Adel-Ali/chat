@@ -5,8 +5,8 @@ import 'package:chat/features/home/presentaion/views/widgets/chat_view_body.dart
 import 'package:flutter/material.dart';
 
 class ChatView extends StatelessWidget {
-  const ChatView({super.key});
-
+  const ChatView({super.key, required this.data});
+  final Map<String, dynamic> data;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,11 +29,21 @@ class ChatView extends StatelessWidget {
           child: Image.asset(Assets.logo),
         ),
         actions: [
-          IconButton(onPressed: (){}, icon:const Icon(Icons.call,size: 30,)),
-          IconButton(onPressed: (){}, icon:const Icon(Icons.more_vert_rounded,size: 30,)),
+          IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.call,
+                size: 30,
+              )),
+          IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.more_vert_rounded,
+                size: 30,
+              )),
         ],
       ),
-      body: const ChatViewBody(),
+      body:  ChatViewBody(data:data),
     );
   }
 }

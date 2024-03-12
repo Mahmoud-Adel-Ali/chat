@@ -3,16 +3,15 @@ import 'package:chat/features/home/presentaion/views/widgets/custom_text_feild_m
 import 'package:flutter/material.dart';
 
 class ChatViewBody extends StatelessWidget {
-  const ChatViewBody({super.key});
-
+  const ChatViewBody({super.key, required this.data});
+  final Map<String,dynamic> data;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         const CustomChatMessages(),
-        CustomTextFeildMessage(),
+        CustomTextFeildMessage(data: data),
       ],
     );
   }
 }
-

@@ -138,6 +138,7 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
             "phone": phone,
             "name": userName,
             "imgUrl": url,
+            'uid': credential?.uid,
           })
           .then((value) =>
               showFlutterToast(msg: "User Added")) //print("User Added")
