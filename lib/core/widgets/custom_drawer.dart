@@ -1,10 +1,33 @@
 import 'package:chat/constant.dart';
-import 'package:chat/core/utils/asset.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class CustomDrawer extends StatelessWidget {
+class CustomDrawer extends StatefulWidget {
   const CustomDrawer({super.key});
+
+  @override
+  State<CustomDrawer> createState() => _CustomDrawerState();
+}
+
+class _CustomDrawerState extends State<CustomDrawer> {
+  late DocumentSnapshot<Map<String, dynamic>> data;
+  bool isLoading = true;
+  @override
+  void initState() {
+    super.initState();
+    getDataOfurrentUser();
+  }
+
+  getDataOfurrentUser() async {
+    data = await FirebaseFirestore.instance
+        .collection("userss")
+        .doc(FirebaseAuth.instance.currentUser?.uid)
+        .get();
+    setState(() {
+      isLoading = false;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,16 +39,19 @@ class CustomDrawer extends StatelessWidget {
         children: [
           Column(
             children: [
-              const UserAccountsDrawerHeader(
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage(Assets.test), fit: BoxFit.cover),
-                ),
-                // currentAccountPicture: UserImg(),
-                currentAccountPictureSize: Size.square(100),
-                accountName: Text("Mahmoud Adel"),
-                accountEmail: Text(""),
-              ),
+              isLoading
+                  ? const Center(child: CircularProgressIndicator())
+                  : UserAccountsDrawerHeader(
+                      decoration: BoxDecoration(color: Colors.black),
+                      currentAccountPictureSize: Size.square(100),
+                      accountName: Text(data['name']),
+                      accountEmail: Text(data['phone']),
+                      currentAccountPicture: CircleAvatar(
+                        child: ClipOval(
+                          child: Image.network(data['imgUrl']),
+                        ),
+                      ),
+                    ),
               ListTile(
                 leading: const Icon(Icons.home),
                 title: const Text("Home"),
