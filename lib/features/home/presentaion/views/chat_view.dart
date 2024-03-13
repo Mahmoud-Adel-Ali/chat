@@ -1,5 +1,4 @@
 import 'package:chat/constant.dart';
-import 'package:chat/core/utils/asset.dart';
 import 'package:chat/core/utils/styles.dart';
 import 'package:chat/features/home/presentaion/views/widgets/chat_view_body.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +15,7 @@ class ChatView extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Mahmoud Adel Ali",
+              data['name'],
               style: Styles.textstyle25.copyWith(color: Colors.white),
             ),
             const Text(
@@ -26,7 +25,7 @@ class ChatView extends StatelessWidget {
           ],
         ),
         leading: CircleAvatar(
-          child: Image.asset(Assets.logo),
+          child: ClipOval(child: Image.network(data['imgUrl'])),
         ),
         actions: [
           IconButton(
