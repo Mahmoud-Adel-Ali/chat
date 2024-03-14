@@ -24,7 +24,7 @@ class HomwView extends StatelessWidget {
           ],
           automaticallyImplyLeading: true,
           backgroundColor: kPrimeColor,
-          title: const Text("Messages(45)"),
+          // title: const Text("Messages(45)"),
           centerTitle: true,
           bottom: const TabBar(
             indicatorWeight: 5,

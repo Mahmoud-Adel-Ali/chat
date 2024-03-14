@@ -27,18 +27,10 @@ class CustomOneFriendChat extends StatelessWidget {
           radius: 55,
           child: ClipOval(child: Image.network(data['imgUrl'])),
         ),
-        trailing: Column(
-          children: [
-            CircleAvatar(
-              backgroundColor: Colors.green[900],
-              radius: 10,
-              // child: const Text("5"),
-            ),
-            const Text(
-              "7:30 pm",
-              style: Styles.textstyle16,
-            ),
-          ],
+        trailing: CircleAvatar(
+          backgroundColor: Colors.green[900],
+          radius: 10,
+          // child: const Text("5"),
         ),
       ),
     );
