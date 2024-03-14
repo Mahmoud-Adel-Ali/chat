@@ -19,7 +19,7 @@ class ChatView extends StatelessWidget {
               style: Styles.textstyle25.copyWith(color: Colors.white),
             ),
             const Text(
-              "  online",
+              "  ....",
               style: Styles.textstyle16,
             ),
           ],

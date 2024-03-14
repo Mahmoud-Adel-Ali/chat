@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
 
 class CustomTextFeildMessage extends StatefulWidget {
-  CustomTextFeildMessage({super.key, required this.data});
+  const CustomTextFeildMessage({super.key, required this.data});
   final Map<String, dynamic> data;
 
   @override
@@ -29,12 +29,19 @@ class _CustomTextFeildMessageState extends State<CustomTextFeildMessage> {
           setState(() {});
         },
         decoration: InputDecoration(
-          hintText: widget.data['uid'],
+          hintText: "Send message",
           hintFadeDuration: const Duration(milliseconds: 500),
           hintStyle: const TextStyle(color: Colors.white),
-          suffixIcon: const Icon(
-            Icons.send,
-            color: Colors.white,
+          suffixIcon: InkWell(
+            onTap: () {
+              sendMessage(msg: controller.text);
+              controller.clear();
+              setState(() {});
+            },
+            child: const Icon(
+              Icons.send,
+              color: Colors.white,
+            ),
           ),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(16),
@@ -65,7 +72,6 @@ class _CustomTextFeildMessageState extends State<CustomTextFeildMessage> {
         'uid': yourUid,
         'time': DateTime.now(),
       });
-      print("First message/.............");
       await FirebaseFirestore.instance
           .collection("userss")
           .doc(yourFriendsUid)
@@ -76,12 +82,6 @@ class _CustomTextFeildMessageState extends State<CustomTextFeildMessage> {
         'uid': yourUid,
         'time': DateTime.now(),
       });
-      print("second message/.............");
-      awesomeDialog(
-          context: context,
-          dialogType: DialogType.success,
-          title: 'Success',
-          desc: 'message was sent');
     } catch (e) {
       awesomeDialog(
           context: context,
