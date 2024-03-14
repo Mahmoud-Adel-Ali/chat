@@ -1,12 +1,11 @@
 import 'package:chat/constant.dart';
 import 'package:chat/core/utils/styles.dart';
-import 'package:chat/features/home/data/models/message_model.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class CustomYourMessage extends StatelessWidget {
   const CustomYourMessage({super.key, required this.msgData});
-  final Message msgData;
+  final Map<String,dynamic> msgData;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -27,14 +26,14 @@ class CustomYourMessage extends StatelessWidget {
             ),
           ),
           child: Text(
-            msgData.msg,
+            msgData['msg'],
             style: Styles.messageStyle,
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(left: 25),
+          padding:const EdgeInsets.only(left: 25),
           child: Text(
-            DateFormat("hh:mm a").format(msgData.time),
+            DateFormat("hh:mm a").format(msgData['time'].toDate()),
           ),
         )
       ],

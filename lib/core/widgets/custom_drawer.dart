@@ -42,8 +42,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
               isLoading
                   ? const Center(child: CircularProgressIndicator())
                   : UserAccountsDrawerHeader(
-                      decoration: BoxDecoration(color: Colors.black),
-                      currentAccountPictureSize: Size.square(100),
+                      decoration: const BoxDecoration(color: Colors.black),
+                      currentAccountPictureSize: const Size.square(100),
                       accountName: Text(data['name']),
                       accountEmail: Text(data['phone']),
                       currentAccountPicture: CircleAvatar(

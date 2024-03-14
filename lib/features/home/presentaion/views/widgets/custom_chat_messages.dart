@@ -1,4 +1,3 @@
-import 'package:chat/features/home/data/models/message_model.dart';
 import 'package:chat/features/home/presentaion/views/widgets/custom_your_friends_message.dart';
 import 'package:chat/features/home/presentaion/views/widgets/custom_your_message.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -21,27 +20,22 @@ class CustomChatMessages extends StatelessWidget {
         builder: (context, snapshot) {
           if (snapshot.hasError) {
             return const Center(child: Text("Somehthing went wrog"));
-          }  else if (snapshot.hasData) {
-            List<Message> messagesList = [];
-            for (int i = 0; i < snapshot.data!.docs.length; i++) {
-              messagesList.add(Message.fromJson(snapshot.data!.docs[i]));
-            }
-            return ListView.builder(
-              itemCount: messagesList.length,
-              itemBuilder: (context, index) {
-                return messagesList[index].uid ==
-                        FirebaseAuth.instance.currentUser
-                    ? CustomYourMessage(msgData: messagesList[index])
-                    : CustomYourFriendsMessage(data: messagesList[index]);
-              },
+          } else if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(
+              child: CircularProgressIndicator(color: Colors.white,),
+            );
+          } else {
+            return ListView(
+              children: snapshot.data!.docs.map((DocumentSnapshot document) {
+                Map<String, dynamic> data = //msg uid time
+                    document.data()!
+                        as Map<String, dynamic>; //msg uid time
+                return (data['uid'] == FirebaseAuth.instance.currentUser!.uid)
+                    ? CustomYourMessage(msgData: data)
+                    : CustomYourFriendsMessage(msgData: data); //as Map
+              }).toList(),
             );
           }
-            return const Center(
-              child: CircularProgressIndicator(
-                color: Colors.white,
-              ),
-            );
-          
         },
       ),
     );
