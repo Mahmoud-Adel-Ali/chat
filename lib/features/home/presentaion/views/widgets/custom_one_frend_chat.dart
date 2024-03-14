@@ -31,8 +31,8 @@ class CustomOneFriendChat extends StatelessWidget {
           children: [
             CircleAvatar(
               backgroundColor: Colors.green[900],
-              radius: 15,
-              child: const Text("5"),
+              radius: 10,
+              // child: const Text("5"),
             ),
             const Text(
               "7:30 pm",
